@@ -9,7 +9,8 @@ module.exports = class Stack {
 	}
 
 	// Remove the top element from the stack and return it
-	pop() {
+    pop() {
+        // Return 'Underflow' if the stack is empty
 		if (this.isEmpty()) {
 			return 'Underflow';
 		}
