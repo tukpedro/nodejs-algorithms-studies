@@ -1,11 +1,18 @@
 // Define a TreeNode class for the non-binary tree
 class TreeNode {
+	/**
+	 * Constructor for the TreeNode class.
+	 * @param {any} data - The data for the node.
+	 */
 	constructor(data) {
 		this.data = data; // Data contained in the node
 		this.children = []; // List of child nodes
 	}
 
-	// Method to add a child node
+	/**
+	 * Adds a child node to the current node.
+	 * @param {TreeNode} childNode - The child node to add.
+	 */
 	addChild(childNode) {
 		this.children.push(childNode);
 	}
@@ -13,11 +20,18 @@ class TreeNode {
 
 // Define the Tree class for the non-binary tree
 class Tree {
+	/**
+	 * Constructor for the Tree class.
+	 * @param {any} rootData - The data for the root node.
+	 */
 	constructor(rootData) {
 		this.root = new TreeNode(rootData); // Root node of the tree
 	}
 
-	// Method to traverse the tree and apply a callback function to each node
+	/**
+	 * Traverses the tree and applies a callback function to each node.
+	 * @param {Function} callback - The function to apply to each node.
+	 */
 	traverse(callback) {
 		function walk(node) {
 			callback(node);
@@ -26,7 +40,11 @@ class Tree {
 		walk(this.root);
 	}
 
-	// Method to find a node with a specific value
+	/**
+	 * Finds a node with a specific value.
+	 * @param {any} value - The value to search for.
+	 * @returns {TreeNode|null} - The node with the given value or null if not found.
+	 */
 	find(value) {
 		let result = null;
 		this.traverse((node) => {
@@ -37,7 +55,10 @@ class Tree {
 		return result;
 	}
 
-	// Method to remove a node with a specific value
+	/**
+	 * Removes a node with a specific value.
+	 * @param {any} value - The value of the node to remove.
+	 */
 	remove(value) {
 		if (this.root.data === value) {
 			this.root = null; // If root node matches the value, remove the entire tree
@@ -57,14 +78,21 @@ class Tree {
 		}
 	}
 
-	// Method to get the total number of nodes in the tree
+	/**
+	 * Gets the total number of nodes in the tree.
+	 * @returns {number} - The total number of nodes.
+	 */
 	size() {
 		let count = 0;
 		this.traverse(() => count++);
 		return count;
 	}
 
-	// Method to get the height (or depth) of the tree
+	/**
+	 * Gets the height (or depth) of the tree.
+	 * @param {TreeNode} [node=this.root] - The starting node (default is the root).
+	 * @returns {number} - The height of the tree.
+	 */
 	height(node = this.root) {
 		if (!node) return 0;
 		let maxChildHeight = 0;
@@ -77,6 +105,12 @@ class Tree {
 		return 1 + maxChildHeight; // Add 1 for the current node and then add the height of the deepest child
 	}
 
+	/**
+	 * Prints the tree structure to the console.
+	 * @param {TreeNode} [node=this.root] - The starting node (default is the root).
+	 * @param {number} [spaceCount=0] - The number of spaces for indentation.
+	 * @param {string} [spaceChar=' '] - The character used for indentation.
+	 */
 	print(node = this.root, spaceCount = 0, spaceChar = ' ') {
 		if (!node) return;
 
