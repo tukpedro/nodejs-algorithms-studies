@@ -1,7 +1,6 @@
 // Define a Node class to represent each element in the linked list
 class Node {
 	/**
-	 * Constructor for the Node class.
 	 * @param {any} data - The data to store in the node.
 	 */
 	constructor(data) {
@@ -11,9 +10,6 @@ class Node {
 }
 
 module.exports = class LinkedList {
-	/**
-	 * Constructor for the LinkedList class.
-	 */
 	constructor() {
 		this.head = null; // The first node in the list
 		this.tail = null; // The last node in the list
