@@ -1,4 +1,3 @@
-// Define the Queue class
 module.exports = class Queue {
 	/**
 	 * Constructor for the Queue class.
