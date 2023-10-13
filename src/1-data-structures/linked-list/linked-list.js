@@ -1,4 +1,3 @@
-// Define a Node class to represent each element in the linked list
 class Node {
 	/**
 	 * @param {any} data - The data to store in the node.
@@ -43,11 +42,10 @@ module.exports = class LinkedList {
 	 */
 	insert(index, data) {
 		if (index < 0 || index > this.length) {
-			// Check if the index is out of bounds
 			throw new Error('Index out of bounds');
 		}
 
-		const newNode = new Node(data); // Create a new node with the given data
+		const newNode = new Node(data);
 
 		if (index === 0) {
 			newNode.next = this.head;
@@ -76,7 +74,6 @@ module.exports = class LinkedList {
 	 */
 	remove(index) {
 		if (index < 0 || index >= this.length) {
-			// Check if the index is out of bounds
 			throw new Error('Index out of bounds');
 		}
 
@@ -114,7 +111,6 @@ module.exports = class LinkedList {
 	 */
 	get(index) {
 		if (index < 0 || index >= this.length) {
-			// Check if the index is out of bounds
 			throw new Error('Index out of bounds');
 		}
 
