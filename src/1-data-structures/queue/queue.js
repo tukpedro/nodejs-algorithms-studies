@@ -1,36 +1,49 @@
+// Define the Queue class
 module.exports = class Queue {
+	/**
+	 * Constructor for the Queue class.
+	 */
 	constructor() {
-		this.items = []; // array to store queue elements
+		this.items = [];
 	}
 
-	// enqueue(item)
-	// adds an element to the queue
+	/**
+	 * Adds an element to the end of the queue.
+	 * @param {any} element - The element to add.
+	 */
 	enqueue(element) {
-		this.items.push(element); // adding element to the queue
+		this.items.push(element);
 	}
 
-	// dequeue()
-	// removes an element from the queue
+	/**
+	 * Removes and returns the front element of the queue.
+	 * @returns {any|string} - The removed element or 'Underflow' if the queue is empty.
+	 */
 	dequeue() {
-		if (this.isEmpty()) return 'Underflow'; // if queue is empty, return error message
-		return this.items.shift(); // removing element from the queue
+		if (this.isEmpty()) return 'Underflow';
+		return this.items.shift();
 	}
 
-	// front()
-	// returns the front element of the queue
+	/**
+	 * Returns the front element of the queue without removing it.
+	 * @returns {any|string} - The front element or 'No elements in Queue' if the queue is empty.
+	 */
 	front() {
-		if (this.isEmpty()) return 'No elements in Queue'; // if queue is empty, return error message
-		return this.items[0]; // returning the front element of the queue
+		if (this.isEmpty()) return 'No elements in Queue';
+		return this.items[0];
 	}
 
-	// isEmpty()
-	// checks if the queue is empty
+	/**
+	 * Checks if the queue is empty.
+	 * @returns {boolean} - True if the queue is empty, false otherwise.
+	 */
 	isEmpty() {
-		return this.items.length == 0; // returns true if queue is empty, false otherwise
+		return this.items.length == 0;
 	}
 
-	// printQueue()
-	// prints all the elements of the queue
+	/**
+	 * Prints all the elements of the queue to the console.
+	 */
 	printQueue() {
 		console.log(this.items.join(' '));
 	}
