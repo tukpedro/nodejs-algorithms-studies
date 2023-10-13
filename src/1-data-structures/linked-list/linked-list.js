@@ -1,22 +1,31 @@
 // Define a Node class to represent each element in the linked list
 class Node {
+	/**
+	 * Constructor for the Node class.
+	 * @param {any} data - The data to store in the node.
+	 */
 	constructor(data) {
-		this.data = data; // The data stored in the node
+		this.data = data;
 		this.next = null; // A reference to the next node in the list
 	}
 }
 
-// Define the LinkedList class to represent the linked list
 module.exports = class LinkedList {
+	/**
+	 * Constructor for the LinkedList class.
+	 */
 	constructor() {
 		this.head = null; // The first node in the list
 		this.tail = null; // The last node in the list
 		this.length = 0; // The number of nodes in the list
 	}
 
-	// Add a new node to the end of the list
+	/**
+	 * Adds a new node to the end of the list.
+	 * @param {any} data - The data to store in the new node.
+	 */
 	append(data) {
-		const newNode = new Node(data); // Create a new node with the given data
+		const newNode = new Node(data);
 
 		if (!this.head) {
 			// If the list is empty, set the new node as the head and tail
@@ -28,10 +37,14 @@ module.exports = class LinkedList {
 			this.tail = newNode;
 		}
 
-		this.length++; // Increment the length of the list
+		this.length++;
 	}
 
-	// Insert a new node at the specified index
+	/**
+	 * Inserts a new node at the specified index.
+	 * @param {number} index - The index to insert the new node at.
+	 * @param {any} data - The data to store in the new node.
+	 */
 	insert(index, data) {
 		if (index < 0 || index > this.length) {
 			// Check if the index is out of bounds
@@ -41,15 +54,9 @@ module.exports = class LinkedList {
 		const newNode = new Node(data); // Create a new node with the given data
 
 		if (index === 0) {
-			// If the index is 0, set the new node as the head
 			newNode.next = this.head;
 			this.head = newNode;
-		} else if (index === this.length) {
-			// If the index is the length of the list, add the new node to the end
-			this.tail.next = newNode;
-			this.tail = newNode;
 		} else {
-			// Otherwise, insert the new node at the specified index
 			let current = this.head;
 			let previous = null;
 			let i = 0;
@@ -64,10 +71,13 @@ module.exports = class LinkedList {
 			previous.next = newNode;
 		}
 
-		this.length++; // Increment the length of the list
+		this.length++;
 	}
 
-	// Remove the node at the specified index
+	/**
+	 * Removes the node at the specified index.
+	 * @param {number} index - The index of the node to remove.
+	 */
 	remove(index) {
 		if (index < 0 || index >= this.length) {
 			// Check if the index is out of bounds
@@ -98,10 +108,14 @@ module.exports = class LinkedList {
 			}
 		}
 
-		this.length--; // Decrement the length of the list
+		this.length--;
 	}
 
-	// Get the data at the specified index
+	/**
+	 * Returns the data at the specified index.
+	 * @param {number} index - The index of the node to retrieve.
+	 * @returns {any} - The data at the specified index.
+	 */
 	get(index) {
 		if (index < 0 || index >= this.length) {
 			// Check if the index is out of bounds
@@ -120,7 +134,11 @@ module.exports = class LinkedList {
 		return current.data; // Return the data at the specified index
 	}
 
-	// Get the index of the first occurrence of the specified data
+	/**
+	 * Returns the index of the first occurrence of the specified data.
+	 * @param {any} data - The data to search for.
+	 * @returns {number} - The index of the first occurrence or -1 if not found.
+	 */
 	indexOf(data) {
 		let current = this.head;
 		let i = 0;
@@ -139,7 +157,10 @@ module.exports = class LinkedList {
 		return -1; // If the data is not found, return -1
 	}
 
-	// Convert the linked list to an array
+	/**
+	 * Converts the linked list to an array.
+	 * @returns {Array} - An array containing all the data in the linked list.
+	 */
 	toArray() {
 		const array = [];
 		let current = this.head;
