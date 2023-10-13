@@ -7,11 +7,19 @@ module.exports = class Stack {
 	}
 
 	/**
+	 * Adds a new number to the top of the stack.
+	 * @param {any} element - The element to add.
+	 */
+	pushNumber(element) {
+		return typeof element === 'number' ? this.items.push(element) : 'Invalid input';
+	}
+
+	/**
 	 * Adds a new element to the top of the stack.
 	 * @param {any} element - The element to add.
 	 */
 	push(element) {
-		this.items.push(element);
+		return this.items.push(element);
 	}
 
 	/**
@@ -49,6 +57,55 @@ module.exports = class Stack {
 	 * @returns {string} - The elements of the stack separated by commas.
 	 */
 	printStack() {
-		return this.items.join(',');
+		return this.items.length > 0 ? this.items.join(',') : 0;
+	}
+
+	/**
+	 * Returns the number of elements in the stack.
+	 * @returns {number} - The number of elements in the stack.
+	 */
+	size() {
+		return this.items.length;
+	}
+
+	/**
+	 * Removes all elements from the stack.
+	 */
+	clear() {
+		this.items = [];
+		return 'Stack cleared';
+	}
+
+	/**
+	 * Returns the max element in the stack.
+	 * @returns {any} - The max element in the stack.
+	 */
+	max() {
+		return Math.max(...this.items);
+	}
+
+	/**
+	 * Returns the min element in the stack.
+	 * @returns {any} - The min element in the stack.
+	 */
+	min() {
+		return Math.min(...this.items);
+	}
+
+	/**
+	 * Returns the inverted stack.
+	 * @returns {any} - The inverted stack.
+	 */
+	invert() {
+		return this.items.reverse();
+	}
+
+	/**
+	 * Returns the inverted stack as a string.
+	 * @returns {any} - The string.
+	 */
+	invertString() {
+		this.items.reverse().toString();
+		return this.items.join('');
 	}
 };

@@ -9,7 +9,7 @@ describe('Stack', () => {
 
 	it('should create an empty stack', () => {
 		expect(stack.isEmpty()).toBe(true);
-		expect(stack.printStack()).toBe('');
+		expect(stack.printStack()).toBe(0);
 	});
 
 	it('should add elements to the stack', () => {
@@ -38,10 +38,46 @@ describe('Stack', () => {
 	});
 
 	it('should return the number of elements in the stack', () => {
-		expect(stack.printStack()).toBe('');
+		expect(stack.size()).toBe(0);
 		stack.push(1);
-		expect(stack.printStack()).toBe('1');
+		expect(stack.size()).toBe(1);
 		stack.push(2);
-		expect(stack.printStack()).toBe('1,2');
+		expect(stack.size()).toBe(2);
+	});
+
+	it('should clear the stack', () => {
+		stack.push(1);
+		stack.push(2);
+		stack.clear();
+		expect(stack.isEmpty()).toBe(true);
+	});
+
+	it('should return the max and min elements in the stack', () => {
+		stack.push(1);
+		stack.push(3);
+		stack.push(2);
+		expect(stack.max()).toBe(3);
+		expect(stack.min()).toBe(1);
+	});
+
+	it('should invert the stack', () => {
+		stack.push(1);
+		stack.push(2);
+		stack.push(3);
+		stack.invert();
+		expect(stack.peek()).toBe(1);
+	});
+
+	it('should return the inverted stack as a string', () => {
+		stack.push(1);
+		stack.push(2);
+		stack.push(3);
+		expect(stack.invertString()).toBe('321');
+	});
+
+	it('should add only numbers to the stack using pushNumber', () => {
+		expect(stack.pushNumber(1)).toBe(1);
+		expect(stack.pushNumber('a')).toBe('Invalid input');
+		expect(stack.peek()).toBe(1);
 	});
 });
