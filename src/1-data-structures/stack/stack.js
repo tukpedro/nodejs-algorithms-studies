@@ -1,4 +1,3 @@
-// Define the Stack class
 module.exports = class Stack {
 	/**
 	 * Constructor for the Stack class.
