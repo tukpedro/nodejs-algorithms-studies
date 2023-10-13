@@ -1,4 +1,3 @@
-// Define a TreeNode class for the non-binary tree
 class TreeNode {
 	/**
 	 * Constructor for the TreeNode class.
@@ -18,7 +17,6 @@ class TreeNode {
 	}
 }
 
-// Define the Tree class for the non-binary tree
 class Tree {
 	/**
 	 * Constructor for the Tree class.

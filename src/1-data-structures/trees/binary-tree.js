@@ -1,4 +1,3 @@
-// Define a Node class for the binary tree
 class Node {
 	/**
 	 * Constructor for the Node class.
