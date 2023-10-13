@@ -60,6 +60,16 @@ describe('Stack', () => {
 		expect(stack.min()).toBe(1);
 	});
 
+	it('should return the ordered stack', () => {
+		stack.push(1);
+		stack.push(6);
+		stack.push(4);
+		stack.push(3);
+		stack.push(2);
+		stack.push(5);
+		expect(stack.order()).toEqual([1, 2, 3, 4, 5, 6]);
+	});
+
 	it('should invert the stack', () => {
 		stack.push(1);
 		stack.push(2);

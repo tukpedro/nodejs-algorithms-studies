@@ -108,4 +108,15 @@ module.exports = class Stack {
 		this.items.reverse().toString();
 		return this.items.join('');
 	}
+
+	/**
+	 * Returns the ordered stack.
+	 * @returns {any} - The ordered stack.
+	 */
+	order() {
+		return this.items.sort((a, b) => a - b);
+	}
 };
+
+const Stack = require('./stack');
+const stack = new Stack();
