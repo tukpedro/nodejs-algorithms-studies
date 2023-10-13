@@ -1,23 +1,35 @@
+// Define the Stack class
 module.exports = class Stack {
+	/**
+	 * Constructor for the Stack class.
+	 */
 	constructor() {
 		this.items = []; // The elements in the stack
 	}
 
-	// Add a new element to the top of the stack
+	/**
+	 * Adds a new element to the top of the stack.
+	 * @param {any} element - The element to add.
+	 */
 	push(element) {
 		this.items.push(element);
 	}
 
-	// Remove the top element from the stack and return it
-    pop() {
-        // Return 'Underflow' if the stack is empty
+	/**
+	 * Removes the top element from the stack and returns it.
+	 * @returns {any|string} - The removed element or 'Underflow' if the stack is empty.
+	 */
+	pop() {
 		if (this.isEmpty()) {
 			return 'Underflow';
 		}
 		return this.items.pop();
 	}
 
-	// Return the top element of the stack
+	/**
+	 * Returns the top element of the stack without removing it.
+	 * @returns {any|string} - The top element or 'No elements in Stack' if the stack is empty.
+	 */
 	peek() {
 		if (this.isEmpty()) {
 			return 'No elements in Stack';
@@ -25,12 +37,18 @@ module.exports = class Stack {
 		return this.items[this.items.length - 1];
 	}
 
-	// Return true if the stack is empty, false otherwise
+	/**
+	 * Checks if the stack is empty.
+	 * @returns {boolean} - True if the stack is empty, false otherwise.
+	 */
 	isEmpty() {
 		return this.items.length === 0;
 	}
 
-	// Return the number of elements in the stack
+	/**
+	 * Returns a string representation of the stack.
+	 * @returns {string} - The elements of the stack separated by commas.
+	 */
 	printStack() {
 		return this.items.join(',');
 	}
