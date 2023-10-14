@@ -6,12 +6,21 @@ module.exports = class Stack {
 		this.items = []; // The elements in the stack
 	}
 
+	check(stack = this.items) {
+		if (stack.length > 5) {
+			stack.pop();
+		}
+
+		return stack;
+	}
+
 	/**
 	 * Adds a new number to the top of the stack.
 	 * @param {any} element - The element to add.
 	 */
 	pushNumber(element) {
-		return typeof element === 'number' ? this.items.push(element) : 'Invalid input';
+		typeof element === 'number' ? this.items.push(element) : 'Invalid input';
+		return this.check();
 	}
 
 	/**
@@ -19,7 +28,8 @@ module.exports = class Stack {
 	 * @param {any} element - The element to add.
 	 */
 	push(element) {
-		return this.items.push(element);
+		this.items.push(element);
+		return this.check();
 	}
 
 	/**
@@ -117,6 +127,3 @@ module.exports = class Stack {
 		return this.items.sort((a, b) => a - b);
 	}
 };
-
-const Stack = require('./stack');
-const stack = new Stack();

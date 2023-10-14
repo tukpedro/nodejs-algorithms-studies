@@ -29,6 +29,10 @@ describe('Stack', () => {
 		expect(stack.isEmpty()).toBe(true);
 	});
 
+	it('should return underflow if trying to pop from an empty stack', () => {
+		expect(stack.pop()).toBe('Underflow');
+	});
+
 	it('should return the top element of the stack', () => {
 		stack.push(1);
 		stack.push(2);
@@ -67,7 +71,8 @@ describe('Stack', () => {
 		stack.push(3);
 		stack.push(2);
 		stack.push(5);
-		expect(stack.order()).toEqual([1, 2, 3, 4, 5, 6]);
+		stack.order();
+		expect(stack.printStack()).toEqual('1,2,3,4,6');
 	});
 
 	it('should invert the stack', () => {
@@ -86,8 +91,20 @@ describe('Stack', () => {
 	});
 
 	it('should add only numbers to the stack using pushNumber', () => {
-		expect(stack.pushNumber(1)).toBe(1);
-		expect(stack.pushNumber('a')).toBe('Invalid input');
+		stack.pushNumber(1);
 		expect(stack.peek()).toBe(1);
+		stack.pushNumber('a');
+		expect(stack.peek()).toBe(1);
+	});
+
+	it('should not exceed 5 items in the stack', () => {
+		stack.push(1);
+		stack.push(2);
+		stack.push(3);
+		stack.push(4);
+		stack.push(5);
+		stack.push(6);
+		expect(stack.size()).toBe(5);
+		expect(stack.peek()).toBe(5);
 	});
 });
